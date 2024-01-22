@@ -1,0 +1,140 @@
+html {
+	background: lightgray;
+	text-align: center;
+	font-family: "Merriweather Sans", sans-serif;
+}
+
+.joystick {
+	position: absolute;
+	top: 149px;
+	left: 101.5px;
+	width: 40px;
+	height: 40px;
+	background: radial-gradient(circle at 35% 35%, white 2%, red 25%, black 95%);
+	border: 0.5px solid black;
+	border-radius: 50%;
+	transition-duration: 20ms;
+}
+
+.button {
+	position: absolute;
+	width: 60px;
+	height: 60px;
+	border: 1px solid black;
+	border-radius: 50%;
+	color: darkgray;
+	transition: 40ms;
+	line-height: 60px;
+	font-size: 1.8em;
+	opacity: 50%;
+	background-color: gray;
+}
+
+.pressed {
+	opacity: 100%;
+	transform: scale(108%);
+	color: black;
+}
+
+/* dPad movements */
+.up.left {
+	transform: translate(-45px, -45px);
+}
+
+.up.right {
+	transform: translate(45px, -45px);
+}
+
+.down.left {
+	transform: translate(-45px, 45px);
+}
+
+.down.right {
+	transform: translate(45px, 45px);
+}
+
+.left {
+	transform: translate(-50px, 0);
+}
+
+.up {
+	transform: translate(0, -50px);
+}
+
+.down {
+	transform: translate(0, 50px);
+}
+
+.right {
+	transform: translate(50px, 0);
+}
+
+/* mapping the buttons */
+.button0 {
+	left: 251px;
+	top: 185px;
+}
+
+.button1 {
+	left: 315px;
+	top: 162px;
+}
+
+.button2 {
+	left: 258px;
+	top: 110.5px;
+}
+
+.button3 {
+	left: 322px;
+	top: 87px;
+}
+
+.button4 {
+	left: 454px;
+	top: 123.5px;
+}
+
+.button5 {
+	left: 390px;
+	top: 96px;
+}
+
+.button6 {
+	left: 446px;
+	top: 199px;
+}
+
+.button7 {
+	left: 383px;
+	top: 171px;
+}
+
+/* style menu buttons to be slimmer */
+
+.button.menubutton {
+	border-radius: 2px;
+	height: 8px;
+	width: 45px;
+	top: 57px;
+	font-size: 0.5rem;
+	line-height: 30px;
+}
+
+.button.button8 {
+	left: 411px;
+	font-size: 0.35em;
+}
+
+.button.button9 {
+	left: 461px;
+	font-size: 0.6em;
+}
+
+.button.button10 {
+	left: 311px;
+}
+
+.button.button11 {
+	left: 361px;
+}
