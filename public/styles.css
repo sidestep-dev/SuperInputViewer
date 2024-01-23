@@ -6,14 +6,15 @@ html {
 
 .joystick {
 	position: absolute;
-	top: 149px;
-	left: 101.5px;
-	width: 40px;
-	height: 40px;
+	top: 151px;
+	left: 103px;
+	width: 34px;
+	height: 34px;
 	background: radial-gradient(circle at 35% 35%, white 2%, red 25%, black 95%);
 	border: 0.5px solid black;
 	border-radius: 50%;
 	transition-duration: 20ms;
+	z-index: 2;
 }
 
 .button {
@@ -30,6 +31,43 @@ html {
 	background-color: gray;
 }
 
+.grid {
+	stroke-width: 2;
+	stroke: gray;
+	fill: lightgray;
+}
+
+.button-on-grid {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	line-height: 35px;
+	font-size: 1.5em;
+	background: gray;
+	border: 0.5px solid black;
+	border-radius: 50%;
+	opacity: 1;
+	z-index: 3;
+	box-shadow: 0.5px 0.5px 1px black;
+	animation: impact 0.2s linear;
+}
+
+@keyframes impact {
+	0% {
+		transform: scale(103%);
+	}
+	50% {
+		opacity: 1;
+		transform: scale(100%);
+	}
+	70% {
+		opacity: 0.8;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
 .pressed {
 	opacity: 100%;
 	transform: scale(108%);
@@ -38,35 +76,35 @@ html {
 
 /* dPad movements */
 .up.left {
-	transform: translate(-45px, -45px);
+	transform: translate(-55px, -55px);
 }
 
 .up.right {
-	transform: translate(45px, -45px);
+	transform: translate(55px, -55px);
 }
 
 .down.left {
-	transform: translate(-45px, 45px);
+	transform: translate(-55px, 55px);
 }
 
 .down.right {
-	transform: translate(45px, 45px);
+	transform: translate(55px, 55px);
 }
 
 .left {
-	transform: translate(-50px, 0);
+	transform: translate(-62px, 0);
 }
 
 .up {
-	transform: translate(0, -50px);
+	transform: translate(0, -62px);
 }
 
 .down {
-	transform: translate(0, 50px);
+	transform: translate(0, 62px);
 }
 
 .right {
-	transform: translate(50px, 0);
+	transform: translate(62px, 0);
 }
 
 /* mapping the buttons */
@@ -137,4 +175,62 @@ html {
 
 .button.button11 {
 	left: 361px;
+}
+
+/* style joystick grid */
+.container {
+	position: absolute;
+	height: 100px;
+	width: 100px;
+	top: 118px;
+	left: 70.2px;
+	transform: scale(140%);
+}
+
+/* animate the trail of the grid */
+.path {
+	stroke-dasharray: 1;
+	stroke-dashoffset: 1;
+	animation: dash 100ms linear forwards, colorChange 0.5s forwards,
+		fadeOut 0.8s forwards;
+}
+
+/* animate the trail endpoints */
+.start-point {
+	animation: linear colorChange 0.5s forwards, linear fadeOut 0.8s forwards;
+}
+
+@keyframes dash {
+	from {
+		stroke-dashoffset: 1;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes colorChange {
+	0% {
+		stroke: red;
+		fill: red;
+	}
+	100% {
+		stroke: blue;
+		fill: blue;
+	}
+}
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+		stroke-width: 4;
+	}
+	60% {
+		stroke-width: 4;
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+		stroke-width: 2;
+	}
 }
