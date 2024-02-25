@@ -1,5 +1,5 @@
-html {
-	background: lightgray;
+body {
+	background: green;
 	text-align: center;
 	font-family: "Merriweather Sans", sans-serif;
 }
@@ -21,20 +21,19 @@ html {
 	position: absolute;
 	width: 60px;
 	height: 60px;
-	border: 1px solid black;
+	border: 1px solid #696969;
 	border-radius: 50%;
-	color: darkgray;
+	color: #bebebe;
 	transition: 40ms;
 	line-height: 60px;
 	font-size: 1.8em;
-	opacity: 50%;
-	background-color: gray;
+	background-color: #a9a9a9;
 }
 
 .grid {
 	stroke-width: 2;
 	stroke: gray;
-	fill: lightgray;
+	fill: none;
 }
 
 .button-on-grid {
@@ -69,9 +68,10 @@ html {
 }
 
 .pressed {
-	opacity: 100%;
 	transform: scale(108%);
 	color: black;
+	border-color: black;
+	background-color: #696969;
 }
 
 /* dPad movements */
@@ -191,7 +191,7 @@ html {
 .path {
 	stroke-dasharray: 1;
 	stroke-dashoffset: 1;
-	animation: dash 100ms linear forwards, colorChange 0.5s forwards,
+	animation: dash 100ms linear forwards, linear colorChange 0.5s forwards,
 		fadeOut 0.8s forwards;
 }
 

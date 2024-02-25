@@ -1,8 +1,10 @@
-//gamepads object
+//gamepads object - will update to handle multiple gamepads in future
 const gamepads = {};
+
 //select display components
 const joystick = document.querySelector(".joystick");
 const grid = document.querySelector("#joystickGrid");
+
 //object that stores mapping configs. Will add config options in future
 const mapping = {
 	xb: [
@@ -42,6 +44,7 @@ const mapping = {
 		"right",
 	],
 };
+
 //function for polling gamepad
 const pollGamepad = () => {
 	return navigator.getGamepads()[0];
@@ -152,7 +155,6 @@ const updateJoystick = () => {
 		}
 	}
 	if (lastPos !== getPos()) {
-		// console.log(`the dpad has moved from ${lastPos} to ${getPos()}`);
 		drawTrail(lastPos, getPos());
 	}
 	lastPos = getPos();
@@ -199,16 +201,6 @@ const updateInput = () => {
 	}
 };
 
-//poll gamepad every 16.6ms (once a frame);
-const updateDisplay = () => {
-	updateInput();
-	updateJoystick();
-};
-
-window.addEventListener("gamepadconnected", () => {
-	setInterval(updateDisplay, 16.6);
-});
-
 //draw trails procedurally using svg
 const drawTrail = (start, end) => {
 	const newTrail = document.createElementNS(
@@ -234,3 +226,14 @@ const drawTrail = (start, end) => {
 		grid.removeChild(trailStart);
 	}, 800);
 };
+
+//main input display function: updates joystick and then button display
+const updateDisplay = () => {
+	updateJoystick();
+	updateInput();
+};
+
+// //poll gamepad every 16.6ms (once a frame);
+window.addEventListener("gamepadconnected", () => {
+	setInterval(updateDisplay, 16.6);
+});

@@ -5,7 +5,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 
 //port
-const port = 3000;
+const port = 10000;
 
 //express features
 const app = express();
@@ -21,9 +21,6 @@ app.use(methodOverride("_method"));
 app.use(express.static("public"));
 app.get("/script.js", (req, res) => {
 	res.sendFile(__dirname, "public/script.js");
-});
-app.get("/anime.min.js", (req, res) => {
-	res.sendFile(__dirname, "public/anime.min.js");
 });
 
 //routes
